@@ -11,8 +11,7 @@
 			"email": "your@name.com"
 		}
 	],
-	"minimum-stability": "stable",
-	
+	"minimum-stability": "stable",	
 	"license": "MIT",
 
 	"require-dev" : {
