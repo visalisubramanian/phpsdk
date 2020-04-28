@@ -1,6 +1,8 @@
 <?php 
 namespace com\zoho\crm\api\contactroles;
 
+use com\zoho\crm\api\param;
+use com\zoho\crm\api\parametermap;
 use com\zoho\crm\api\util\commonapihandler;
 
  class ContactRolesOperations
@@ -12,7 +14,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.("/crm/v2/Contacts/roles"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
-		return $handlerInstance->apiCall(ResponseWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ResponseHandler::class, "application/json"); 
 
 	}
 
@@ -25,7 +27,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$handlerInstance->setHttpMethod("POST"); 
 		$handlerInstance->setContentType("application/json"); 
 		$handlerInstance->setRequest($request); 
-		return $handlerInstance->apiCall(ActionWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
 
 	}
 
@@ -38,7 +40,19 @@ use com\zoho\crm\api\util\commonapihandler;
 		$handlerInstance->setHttpMethod("PUT"); 
 		$handlerInstance->setContentType("application/json"); 
 		$handlerInstance->setRequest($request); 
-		return $handlerInstance->apiCall(ActionWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
+
+	}
+
+	public  function deleteContactRoles(ParameterMap $paramInstance)
+	{
+		$handlerInstance=new CommonAPIHandler(); 
+		$apiPath=""; 
+		$apiPath=$apiPath.("/crm/v2/Contacts/roles"); 
+		$handlerInstance->setAPIPath($apiPath); 
+		$handlerInstance->setHttpMethod("DELETE"); 
+		$handlerInstance->setParam($paramInstance); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
 
 	}
 
@@ -50,7 +64,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
-		return $handlerInstance->apiCall(ResponseWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ResponseHandler::class, "application/json"); 
 
 	}
 
@@ -64,7 +78,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$handlerInstance->setHttpMethod("PUT"); 
 		$handlerInstance->setContentType("application/json"); 
 		$handlerInstance->setRequest($request); 
-		return $handlerInstance->apiCall(ActionWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
 
 	}
 
@@ -76,7 +90,16 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("DELETE"); 
-		return $handlerInstance->apiCall(ActionWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
 
 	}
 } 
+ class DeleteContactRolesParam
+{
+	public static final function ids()
+	{
+		return new Param("ids"); 
+
+	}
+
+}

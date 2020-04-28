@@ -1,33 +1,21 @@
 <?php 
 namespace com\zoho\crm\api\blueprint;
 
+use com\zoho\crm\api\record\record;
 use com\zoho\crm\api\util\model;
 
  class Transition implements Model
 {
-	private  $id;
 	private  $nextTransitions;
+	private  $percentPartialSave;
 	private  $data;
 	private  $nextFieldValue;
 	private  $name;
 	private  $criteriaMatched;
+	private  $id;
 	private  $fields;
 	private  $criteriaMessage;
-	private  $percentPartialSave;
 	private  $keyModified=array();
-
-	public  function getId()
-	{
-		return $this->id; 
-
-	}
-
-	public  function setId(string $id)
-	{
-		$this->id=$id; 
-		$this->keyModified["id"] = 1; 
-
-	}
 
 	public  function getNextTransitions()
 	{
@@ -39,6 +27,19 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->nextTransitions=$nextTransitions; 
 		$this->keyModified["next_transitions"] = 1; 
+
+	}
+
+	public  function getPercentPartialSave()
+	{
+		return $this->percentPartialSave; 
+
+	}
+
+	public  function setPercentPartialSave(int $percentPartialSave)
+	{
+		$this->percentPartialSave=$percentPartialSave; 
+		$this->keyModified["percent_partial_save"] = 1; 
 
 	}
 
@@ -94,6 +95,19 @@ use com\zoho\crm\api\util\model;
 
 	}
 
+	public  function getId()
+	{
+		return $this->id; 
+
+	}
+
+	public  function setId(string $id)
+	{
+		$this->id=$id; 
+		$this->keyModified["id"] = 1; 
+
+	}
+
 	public  function getFields()
 	{
 		return $this->fields; 
@@ -117,19 +131,6 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->criteriaMessage=$criteriaMessage; 
 		$this->keyModified["criteria_message"] = 1; 
-
-	}
-
-	public  function getPercentPartialSave()
-	{
-		return $this->percentPartialSave; 
-
-	}
-
-	public  function setPercentPartialSave(int $percentPartialSave)
-	{
-		$this->percentPartialSave=$percentPartialSave; 
-		$this->keyModified["percent_partial_save"] = 1; 
 
 	}
 

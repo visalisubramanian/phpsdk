@@ -3,7 +3,7 @@ namespace com\zoho\crm\api\users;
 
 use com\zoho\crm\api\util\model;
 
- class APIException implements Model
+ class APIException implements Model, ActionResponse
 {
 	private  $status;
 	private  $code;

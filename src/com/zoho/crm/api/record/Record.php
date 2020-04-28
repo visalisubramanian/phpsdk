@@ -1,11 +1,12 @@
 <?php 
 namespace com\zoho\crm\api\record;
 
-use com\zoho\crm\api\fields\field;
+use com\zoho\crm\api\users\user;
 use com\zoho\crm\api\util\model;
 
  class Record implements Model
 {
+	private  $name;
 	private  $id;
 	private  $createdBy;
 	private  $createdTime;
@@ -23,6 +24,19 @@ use com\zoho\crm\api\util\model;
 	public  function addKeyValue(string $apiName, Object $value)
 	{
 		$this->keyValues[$apiName] = $value; 
+
+	}
+
+	public  function getName()
+	{
+		return $this->name; 
+
+	}
+
+	public  function setName(string $name)
+	{
+		$this->name=$name; 
+		$this->keyModified["name"] = 1; 
 
 	}
 

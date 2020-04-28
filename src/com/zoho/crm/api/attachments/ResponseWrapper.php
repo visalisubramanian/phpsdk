@@ -3,7 +3,7 @@ namespace com\zoho\crm\api\attachments;
 
 use com\zoho\crm\api\util\model;
 
- class ResponseWrapper implements Model
+ class ResponseWrapper implements Model, ResponseHandler
 {
 	private  $data;
 	private  $keyModified=array();

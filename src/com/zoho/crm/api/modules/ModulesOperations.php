@@ -12,7 +12,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.("/crm/v2/settings/modules"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
-		return $handlerInstance->apiCall(ResponseWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ResponseHandler::class, "application/json"); 
 
 	}
 
@@ -24,7 +24,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.(strval($apiName)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
-		return $handlerInstance->apiCall(ResponseWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ResponseHandler::class, "application/json"); 
 
 	}
 

@@ -5,17 +5,19 @@ use com\zoho\crm\api\util\model;
 
  class Field implements Model
 {
-	private  $id;
-	private  $apiName;
+	private  $webhook;
+	private  $jsonType;
 	private  $displayLabel;
 	private  $dataType;
 	private  $columnName;
+	private  $personalityName;
+	private  $id;
 	private  $transitionSequence;
 	private  $mandatory;
+	private  $layouts;
+	private  $apiName;
 	private  $content;
 	private  $systemMandatory;
-	private  $webhook;
-	private  $jsonType;
 	private  $crypt;
 	private  $fieldLabel;
 	private  $tooltip;
@@ -33,32 +35,31 @@ use com\zoho\crm\api\util\model;
 	private  $pickListValues;
 	private  $multiselectlookup;
 	private  $autoNumber;
-	private  $layouts;
 	private  $keyModified=array();
 
-	public  function getId()
+	public  function getWebhook()
 	{
-		return $this->id; 
+		return $this->webhook; 
 
 	}
 
-	public  function setId(string $id)
+	public  function setWebhook(Boolean $webhook)
 	{
-		$this->id=$id; 
-		$this->keyModified["id"] = 1; 
+		$this->webhook=$webhook; 
+		$this->keyModified["webhook"] = 1; 
 
 	}
 
-	public  function getApiName()
+	public  function getJsonType()
 	{
-		return $this->apiName; 
+		return $this->jsonType; 
 
 	}
 
-	public  function setApiName(string $apiName)
+	public  function setJsonType(string $jsonType)
 	{
-		$this->apiName=$apiName; 
-		$this->keyModified["api_name"] = 1; 
+		$this->jsonType=$jsonType; 
+		$this->keyModified["json_type"] = 1; 
 
 	}
 
@@ -101,6 +102,32 @@ use com\zoho\crm\api\util\model;
 
 	}
 
+	public  function getPersonalityName()
+	{
+		return $this->personalityName; 
+
+	}
+
+	public  function setPersonalityName(string $personalityName)
+	{
+		$this->personalityName=$personalityName; 
+		$this->keyModified["personality_name"] = 1; 
+
+	}
+
+	public  function getId()
+	{
+		return $this->id; 
+
+	}
+
+	public  function setId(string $id)
+	{
+		$this->id=$id; 
+		$this->keyModified["id"] = 1; 
+
+	}
+
 	public  function getTransitionSequence()
 	{
 		return $this->transitionSequence; 
@@ -127,6 +154,32 @@ use com\zoho\crm\api\util\model;
 
 	}
 
+	public  function getLayouts()
+	{
+		return $this->layouts; 
+
+	}
+
+	public  function setLayouts(array $layouts)
+	{
+		$this->layouts=$layouts; 
+		$this->keyModified["layouts"] = 1; 
+
+	}
+
+	public  function getApiName()
+	{
+		return $this->apiName; 
+
+	}
+
+	public  function setApiName(string $apiName)
+	{
+		$this->apiName=$apiName; 
+		$this->keyModified["api_name"] = 1; 
+
+	}
+
 	public  function getContent()
 	{
 		return $this->content; 
@@ -150,32 +203,6 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->systemMandatory=$systemMandatory; 
 		$this->keyModified["system_mandatory"] = 1; 
-
-	}
-
-	public  function getWebhook()
-	{
-		return $this->webhook; 
-
-	}
-
-	public  function setWebhook(Boolean $webhook)
-	{
-		$this->webhook=$webhook; 
-		$this->keyModified["webhook"] = 1; 
-
-	}
-
-	public  function getJsonType()
-	{
-		return $this->jsonType; 
-
-	}
-
-	public  function setJsonType(string $jsonType)
-	{
-		$this->jsonType=$jsonType; 
-		$this->keyModified["json_type"] = 1; 
 
 	}
 
@@ -397,19 +424,6 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->autoNumber=$autoNumber; 
 		$this->keyModified["auto_number"] = 1; 
-
-	}
-
-	public  function getLayouts()
-	{
-		return $this->layouts; 
-
-	}
-
-	public  function setLayouts(array $layouts)
-	{
-		$this->layouts=$layouts; 
-		$this->keyModified["layouts"] = 1; 
 
 	}
 

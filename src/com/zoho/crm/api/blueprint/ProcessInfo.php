@@ -5,7 +5,6 @@ use com\zoho\crm\api\util\model;
 
  class ProcessInfo implements Model
 {
-	private  $id;
 	private  $fieldId;
 	private  $isContinuous;
 	private  $apiName;
@@ -14,21 +13,9 @@ use com\zoho\crm\api\util\model;
 	private  $name;
 	private  $columnName;
 	private  $fieldValue;
+	private  $id;
 	private  $fieldName;
 	private  $keyModified=array();
-
-	public  function getId()
-	{
-		return $this->id; 
-
-	}
-
-	public  function setId(string $id)
-	{
-		$this->id=$id; 
-		$this->keyModified["id"] = 1; 
-
-	}
 
 	public  function getFieldId()
 	{
@@ -131,6 +118,19 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->fieldValue=$fieldValue; 
 		$this->keyModified["field_value"] = 1; 
+
+	}
+
+	public  function getId()
+	{
+		return $this->id; 
+
+	}
+
+	public  function setId(string $id)
+	{
+		$this->id=$id; 
+		$this->keyModified["id"] = 1; 
 
 	}
 

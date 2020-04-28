@@ -3,7 +3,7 @@ namespace com\zoho\crm\api\profile;
 
 use com\zoho\crm\api\util\model;
 
- class ResponseWrapper implements Model
+ class ResponseWrapper implements Model, ResponseHandler
 {
 	private  $profiles;
 	private  $keyModified=array();

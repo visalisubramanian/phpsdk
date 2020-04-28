@@ -3,9 +3,10 @@ namespace com\zoho\crm\api\customview;
 
 use com\zoho\crm\api\util\model;
 
- class ResponseWrapper implements Model
+ class ResponseWrapper implements Model, ResponseHandler
 {
 	private  $customViews;
+	private  $info;
 	private  $keyModified=array();
 
 	public  function getCustomViews()
@@ -18,6 +19,19 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->customViews=$customViews; 
 		$this->keyModified["custom_views"] = 1; 
+
+	}
+
+	public  function getInfo()
+	{
+		return $this->info; 
+
+	}
+
+	public  function setInfo(Info $info)
+	{
+		$this->info=$info; 
+		$this->keyModified["info"] = 1; 
 
 	}
 

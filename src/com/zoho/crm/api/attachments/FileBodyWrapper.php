@@ -4,7 +4,7 @@ namespace com\zoho\crm\api\attachments;
 use com\zoho\crm\api\util\streamwrapper;
 use com\zoho\crm\api\util\model;
 
- class FileBodyWrapper implements Model
+ class FileBodyWrapper implements Model, ResponseHandler
 {
 	private  $file;
 	private  $keyModified=array();

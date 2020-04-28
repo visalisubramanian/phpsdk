@@ -3,7 +3,7 @@ namespace com\zoho\crm\api\contactroles;
 
 use com\zoho\crm\api\util\model;
 
- class ActionWrapper implements Model
+ class ActionWrapper implements Model, ActionHandler
 {
 	private  $contactRoles;
 	private  $keyModified=array();

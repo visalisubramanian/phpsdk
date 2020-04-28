@@ -3,7 +3,7 @@ namespace com\zoho\crm\api\customview;
 
 use com\zoho\crm\api\util\model;
 
- class APIException implements Model, ActionResponse
+ class APIException implements Model, ResponseHandler
 {
 	private  $status;
 	private  $code;

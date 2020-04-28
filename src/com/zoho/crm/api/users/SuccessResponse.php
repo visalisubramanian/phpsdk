@@ -1,15 +1,28 @@
 <?php 
-namespace com\zoho\crm\api\attachments;
+namespace com\zoho\crm\api\users;
 
 use com\zoho\crm\api\util\model;
 
  class SuccessResponse implements Model, ActionResponse
 {
-	private  $code;
-	private  $details;
-	private  $message;
 	private  $status;
+	private  $code;
+	private  $message;
+	private  $details;
 	private  $keyModified=array();
+
+	public  function getStatus()
+	{
+		return $this->status; 
+
+	}
+
+	public  function setStatus(string $status)
+	{
+		$this->status=$status; 
+		$this->keyModified["status"] = 1; 
+
+	}
 
 	public  function getCode()
 	{
@@ -21,19 +34,6 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->code=$code; 
 		$this->keyModified["code"] = 1; 
-
-	}
-
-	public  function getDetails()
-	{
-		return $this->details; 
-
-	}
-
-	public  function setDetails(array $details)
-	{
-		$this->details=$details; 
-		$this->keyModified["details"] = 1; 
 
 	}
 
@@ -50,16 +50,16 @@ use com\zoho\crm\api\util\model;
 
 	}
 
-	public  function getStatus()
+	public  function getDetails()
 	{
-		return $this->status; 
+		return $this->details; 
 
 	}
 
-	public  function setStatus(string $status)
+	public  function setDetails(array $details)
 	{
-		$this->status=$status; 
-		$this->keyModified["status"] = 1; 
+		$this->details=$details; 
+		$this->keyModified["details"] = 1; 
 
 	}
 

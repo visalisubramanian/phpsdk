@@ -8,24 +8,14 @@ use com\zoho\crm\api\util\utility;
 
  class RecordOperations
 {
-	private  $moduleApiName;
-	private  $id;
-
-	public function __Construct(string $moduleApiName, string $id)
-	{
-		$this->moduleApiName=$moduleApiName; 
-		$this->id=$id; 
-
-	}
-
-	public  function getRecord()
+	public  function getRecord(string $moduleApiName, string $id)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
 		Utility::getFields($moduleApiName); 
@@ -34,14 +24,14 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function updateRecord(BodyWrapper $request)
+	public  function updateRecord(BodyWrapper $request, string $moduleApiName, string $id)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("PUT"); 
 		$handlerInstance->setContentType("application/json"); 
@@ -52,14 +42,14 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function deleteRecord(Boolean $wfTrigger)
+	public  function deleteRecord(string $moduleApiName, string $id, Boolean $wfTrigger)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("DELETE"); 
 		Utility::getFields($moduleApiName); 
@@ -68,12 +58,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function getRecords()
+	public  function getRecords(string $moduleApiName)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
 		Utility::getFields($moduleApiName); 
@@ -82,12 +72,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function createRecords(BodyWrapper $request)
+	public  function createRecords(BodyWrapper $request, string $moduleApiName)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("POST"); 
 		$handlerInstance->setContentType("application/json"); 
@@ -98,12 +88,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function updateRecords(BodyWrapper $request)
+	public  function updateRecords(BodyWrapper $request, string $moduleApiName)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("PUT"); 
 		$handlerInstance->setContentType("application/json"); 
@@ -114,12 +104,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function deleteRecords(string $ids, Boolean $wfTrigger)
+	public  function deleteRecords(string $moduleApiName, string $ids, Boolean $wfTrigger)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("DELETE"); 
 		Utility::getFields($moduleApiName); 
@@ -128,12 +118,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function updateRecords(UpsertBodyWrapper $request)
+	public  function updateRecords(UpsertBodyWrapper $request, string $moduleApiName)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/upsert"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("PUT"); 
@@ -145,12 +135,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function getDeletedRecords()
+	public  function getDeletedRecords(string $moduleApiName)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/deleted"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
@@ -160,12 +150,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function searchRecords(ParameterMap $paramInstance)
+	public  function searchRecords(ParameterMap $paramInstance, string $moduleApiName)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/search"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
@@ -176,12 +166,12 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function convertLead(ConvertBodyWrapper $request)
+	public  function convertLead(ConvertBodyWrapper $request, string $id)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
 		$apiPath=$apiPath.("/crm/v2/Leads/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$apiPath=$apiPath.("/actions/convert"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
@@ -191,14 +181,14 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function getPhoto()
+	public  function getPhoto(string $moduleApiName, string $id)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
-		$apiPath=$apiPath.("https://www.zohoapis.com/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.("/crm/v2/"); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$apiPath=$apiPath.("/photo"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
@@ -206,14 +196,14 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function createPhoto(FileBodyWrapper $request)
+	public  function uploadPhoto(FileBodyWrapper $request, string $moduleApiName, string $id)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
-		$apiPath=$apiPath.("https://www.zohoapis.com/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.("/crm/v2/"); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$apiPath=$apiPath.("/photo"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("POST"); 
@@ -223,14 +213,14 @@ use com\zoho\crm\api\util\utility;
 
 	}
 
-	public  function deletePhoto()
+	public  function deletePhoto(string $moduleApiName, string $id)
 	{
 		$handlerInstance=new CommonAPIHandler(); 
 		$apiPath=""; 
-		$apiPath=$apiPath.("https://www.zohoapis.com/crm/v2/"); 
-		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.("/crm/v2/"); 
+		$apiPath=$apiPath.(strval($moduleApiName)); 
 		$apiPath=$apiPath.("/"); 
-		$apiPath=$apiPath.(strval($this->id)); 
+		$apiPath=$apiPath.(strval($id)); 
 		$apiPath=$apiPath.("/photo"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("DELETE"); 

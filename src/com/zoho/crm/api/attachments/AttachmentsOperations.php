@@ -1,6 +1,8 @@
 <?php 
 namespace com\zoho\crm\api\attachments;
 
+use com\zoho\crm\api\param;
+use com\zoho\crm\api\parametermap;
 use com\zoho\crm\api\util\commonapihandler;
 
  class AttachmentsOperations
@@ -27,7 +29,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
-		return $handlerInstance->apiCall(FileBodyWrapper::class, "application/x-download"); 
+		return $handlerInstance->apiCall(ResponseHandler::class, "application/x-download"); 
 
 	}
 
@@ -43,7 +45,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.(strval($id)); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("DELETE"); 
-		return $handlerInstance->apiCall(ActionWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
 
 	}
 
@@ -58,7 +60,7 @@ use com\zoho\crm\api\util\commonapihandler;
 		$apiPath=$apiPath.("/Attachments"); 
 		$handlerInstance->setAPIPath($apiPath); 
 		$handlerInstance->setHttpMethod("GET"); 
-		return $handlerInstance->apiCall(ResponseWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ResponseHandler::class, "application/json"); 
 
 	}
 
@@ -75,7 +77,32 @@ use com\zoho\crm\api\util\commonapihandler;
 		$handlerInstance->setHttpMethod("POST"); 
 		$handlerInstance->setContentType("multipart/form-data"); 
 		$handlerInstance->setRequest($request); 
-		return $handlerInstance->apiCall(ActionWrapper::class, "application/json"); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
+
+	}
+
+	public  function uploadLinkAttachment(ParameterMap $paramInstance)
+	{
+		$handlerInstance=new CommonAPIHandler(); 
+		$apiPath=""; 
+		$apiPath=$apiPath.("/crm/v2/"); 
+		$apiPath=$apiPath.(strval($this->moduleApiName)); 
+		$apiPath=$apiPath.("/"); 
+		$apiPath=$apiPath.(strval($this->recordId)); 
+		$apiPath=$apiPath.("/Attachments"); 
+		$handlerInstance->setAPIPath($apiPath); 
+		$handlerInstance->setHttpMethod("POST"); 
+		$handlerInstance->setParam($paramInstance); 
+		return $handlerInstance->apiCall(ActionHandler::class, "application/json"); 
 
 	}
 } 
+ class UploadLinkAttachmentParam
+{
+	public static final function attachmentUrl()
+	{
+		return new Param("attachmentUrl"); 
+
+	}
+
+}

@@ -3,25 +3,11 @@ namespace com\zoho\crm\api\modules;
 
 use com\zoho\crm\api\util\model;
 
- class Territory implements Model
+ class Profile implements Model
 {
-	private  $id;
 	private  $name;
-	private  $subordinates;
+	private  $id;
 	private  $keyModified=array();
-
-	public  function getId()
-	{
-		return $this->id; 
-
-	}
-
-	public  function setId(string $id)
-	{
-		$this->id=$id; 
-		$this->keyModified["id"] = 1; 
-
-	}
 
 	public  function getName()
 	{
@@ -36,16 +22,16 @@ use com\zoho\crm\api\util\model;
 
 	}
 
-	public  function getSubordinates()
+	public  function getId()
 	{
-		return $this->subordinates; 
+		return $this->id; 
 
 	}
 
-	public  function setSubordinates(Boolean $subordinates)
+	public  function setId(string $id)
 	{
-		$this->subordinates=$subordinates; 
-		$this->keyModified["subordinates"] = 1; 
+		$this->id=$id; 
+		$this->keyModified["id"] = 1; 
 
 	}
 

@@ -1,5 +1,5 @@
 <?php 
-namespace com\zoho\crm\api\users;
+namespace com\zoho\crm\api\modules;
 
  interface ActionResponse
 {

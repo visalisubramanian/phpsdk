@@ -3,7 +3,7 @@ namespace com\zoho\crm\api\modules;
 
 use com\zoho\crm\api\util\model;
 
- class SuccessResponse implements Model
+ class SuccessResponse implements Model, ActionResponse
 {
 	private  $status;
 	private  $code;

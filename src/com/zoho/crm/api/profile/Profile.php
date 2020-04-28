@@ -1,6 +1,7 @@
 <?php 
 namespace com\zoho\crm\api\profile;
 
+use com\zoho\crm\api\users\user;
 use com\zoho\crm\api\util\model;
 
  class Profile implements Model
@@ -13,6 +14,8 @@ use com\zoho\crm\api\util\model;
 	private  $category;
 	private  $modifiedBy;
 	private  $createdBy;
+	private  $permissionsDetails;
+	private  $sections;
 	private  $keyModified=array();
 
 	public  function getId()
@@ -116,6 +119,32 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->createdBy=$createdBy; 
 		$this->keyModified["created_by"] = 1; 
+
+	}
+
+	public  function getPermissionsDetails()
+	{
+		return $this->permissionsDetails; 
+
+	}
+
+	public  function setPermissionsDetails(array $permissionsDetails)
+	{
+		$this->permissionsDetails=$permissionsDetails; 
+		$this->keyModified["permissions_details"] = 1; 
+
+	}
+
+	public  function getSections()
+	{
+		return $this->sections; 
+
+	}
+
+	public  function setSections(array $sections)
+	{
+		$this->sections=$sections; 
+		$this->keyModified["sections"] = 1; 
 
 	}
 

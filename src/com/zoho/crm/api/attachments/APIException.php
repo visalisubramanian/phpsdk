@@ -3,13 +3,26 @@ namespace com\zoho\crm\api\attachments;
 
 use com\zoho\crm\api\util\model;
 
- class APIException implements Model, ActionResponse
+ class APIException implements Model, ResponseHandler, ActionResponse, ActionHandler
 {
+	private  $status;
 	private  $code;
 	private  $message;
-	private  $status;
 	private  $details;
 	private  $keyModified=array();
+
+	public  function getStatus()
+	{
+		return $this->status; 
+
+	}
+
+	public  function setStatus(string $status)
+	{
+		$this->status=$status; 
+		$this->keyModified["status"] = 1; 
+
+	}
 
 	public  function getCode()
 	{
@@ -34,19 +47,6 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->message=$message; 
 		$this->keyModified["message"] = 1; 
-
-	}
-
-	public  function getStatus()
-	{
-		return $this->status; 
-
-	}
-
-	public  function setStatus(string $status)
-	{
-		$this->status=$status; 
-		$this->keyModified["status"] = 1; 
 
 	}
 

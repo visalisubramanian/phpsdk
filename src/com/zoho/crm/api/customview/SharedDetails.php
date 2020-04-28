@@ -1,12 +1,13 @@
 <?php 
-namespace com\zoho\crm\api\modules;
+namespace com\zoho\crm\api\customview;
 
 use com\zoho\crm\api\util\model;
 
- class Territory implements Model
+ class SharedDetails implements Model
 {
 	private  $id;
 	private  $name;
+	private  $type;
 	private  $subordinates;
 	private  $keyModified=array();
 
@@ -33,6 +34,19 @@ use com\zoho\crm\api\util\model;
 	{
 		$this->name=$name; 
 		$this->keyModified["name"] = 1; 
+
+	}
+
+	public  function getType()
+	{
+		return $this->type; 
+
+	}
+
+	public  function setType(string $type)
+	{
+		$this->type=$type; 
+		$this->keyModified["type"] = 1; 
 
 	}
 

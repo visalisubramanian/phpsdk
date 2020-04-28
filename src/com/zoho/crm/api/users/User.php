@@ -5,6 +5,7 @@ use com\zoho\crm\api\util\model;
 
  class User implements Model
 {
+	private  $name;
 	private  $id;
 	private  $country;
 	private  $city;
@@ -39,6 +40,19 @@ use com\zoho\crm\api\util\model;
 	private  $territories;
 	private  $theme;
 	private  $keyModified=array();
+
+	public  function getName()
+	{
+		return $this->name; 
+
+	}
+
+	public  function setName(string $name)
+	{
+		$this->name=$name; 
+		$this->keyModified["name"] = 1; 
+
+	}
 
 	public  function getId()
 	{
@@ -423,7 +437,7 @@ use com\zoho\crm\api\util\model;
 
 	}
 
-	public  function setProfile(ProfileInfo $profile)
+	public  function setProfile(Profile $profile)
 	{
 		$this->profile=$profile; 
 		$this->keyModified["profile"] = 1; 
@@ -436,7 +450,7 @@ use com\zoho\crm\api\util\model;
 
 	}
 
-	public  function setRole(ProfileInfo $role)
+	public  function setRole(Profile $role)
 	{
 		$this->role=$role; 
 		$this->keyModified["role"] = 1; 

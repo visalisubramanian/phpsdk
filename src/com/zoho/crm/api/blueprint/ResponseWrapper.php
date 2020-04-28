@@ -14,7 +14,7 @@ use com\zoho\crm\api\util\model;
 
 	}
 
-	public  function setBlueprint(BluePrint $blueprint)
+	public  function setBlueprint(array $blueprint)
 	{
 		$this->blueprint=$blueprint; 
 		$this->keyModified["blueprint"] = 1; 
