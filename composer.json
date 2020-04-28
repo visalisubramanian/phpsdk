@@ -1,5 +1,5 @@
 {
-	"name": "visali-pttk3214/zohocrm-php-sdk",
+	"name": "visali-pttk3214/php-sdk",
 	"require": {
 		"php": ">=5.3.0",
 		"ext-json": "*",
@@ -11,7 +11,7 @@
 			"email": "your@name.com"
 		}
 	],
-	"minimum-stability": "stable",
+	"minimum-stability": "stable",	
 	"license": "MIT",
 
 	"require-dev" : {
